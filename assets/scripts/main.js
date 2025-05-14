@@ -87,12 +87,12 @@ function initFormHandler() {
 	// B9. TODO - Get the recipes array from localStorage, add this new recipe to it, and
 	//            then save the recipes array back to localStorage
 	formElement.addEventListener("submit", (event) => {
+		event.preventDefault();
 		let form = new FormData(formElement);
 		let recipeObject = {}; 
 		for (const [key, value] of form.entries()) {
 			recipeObject[key] = value;
 		}
-		window.location.href = "https://rohanmad.github.io/Lab6_Starter/";
 		let recipeCard = document.createElement("recipe-card");
 		recipeCard.data = recipeObject;
 		mainElement.append(recipeCard);
